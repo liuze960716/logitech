@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>登录-罗技官方商城</title>
+<link rel="stylesheet" type="text/css" href="css/login.css">
+</head>
+
+<body>
+<!-- header -->
+<header class="headerBox">
+    <div class="container">
+        <a href="index.html" class="logo"></a>
+    </div>
+    <div class="bg"></div>
+</header>
+<!-- 登录 -->
+<section class="login">
+    <div class="main"><a href="#" target="_blank"></a></div>
+    <!-- <form action="php/logincheck.php" method="post"> -->
+        <div class="login_box">
+            <h4 class="login_title">
+                <span class="name">账户登录</span>
+                <a href="register.html" class="link">手机快速注册&gt;</a>
+            </h4>
+            <div class="ligin_form">
+                <div class="form_list">
+                    <input type="text" placeholder="手机号/邮箱/账户名" class="input_text" name="login_name" id="username">
+                    <i class="icon_user"></i>
+                </div>
+                <div class="form_list">
+                    <input type="text" placeholder="密码" class="input_text" name="login_pwd" id="userpass">
+                    <i class="icon_pass"></i>
+                </div>
+                <div class="form_list">
+                    <input type="password" placeholder="请输入验证码" class="input_yzm">
+                    <img src="img/Coptcha1.gif" alt="验证码">
+                </div>
+            </div>
+            <div>
+                <p class="login_tool">
+                    <label class="label_check"><input type="checkbox">自动登录</label>
+                    <a class="val" href="">忘记密码</a>
+                </p>
+                <input type="submit" class="loginbtn" id="btnLogin" value="登录">
+            </div>
+            <div class="other">
+                <label for="">其他方式登录:</label>
+                <a href="#" class="wx"></a>
+                <a href="#" class="qq"></a>
+            </div>
+        <div>
+    <!-- </form> -->
+</section>
+<!-- footer -->
+<div class="footerBox">
+    <div class="container copyright">
+        <p>罗技官方商城由罗技（中国）科技有限公司授权双齐国际贸易（上海）有限公司负责经营 2018 , all rights reserved</p>
+        <p>
+            <a style="color: #7f7f7f;" href="" target="_blank">罗技官方网站</a>&nbsp;
+            <a style="color: #7f7f7f;" href="" target="_blank">联系方式</a>&nbsp;
+            <a style="color: #7f7f7f;" href="" target="_blank">隐私声明</a>&nbsp;
+            <a style="color: #7f7f7f;" href="" target="_blank">用户服务协议</a>&nbsp;
+            <a style="color: #7f7f7f;" href="" target="_blank">沪ICP备10200262号</a>
+        </p>
+    </div>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="js/cookieTools.js"></script>
+<script type="text/javascript">
+function $(id) {
+    return document.getElementById(id);
+}
+window.onload = function () {
+    $("btnLogin").onclick = function () {
+        let xhr = new XMLHttpRequest();
+        xhr.open("post", "php/logincheck02.php", true);
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                if (xhr.responseText == "0") {
+                    // $("spanError").style.display = "block";
+                } else {
+                    //保存cookie
+                    addCookie("username", $("username").value, 7);
+                    location.href = "index.html";
+                    alert("保存成功");
+                }
+            }
+        }
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        let sendStr = "username=" + $("username").value + "userpass=" + $("userpass").value;
+        xhr.send(sendStr);
+    }
+}
+</script>

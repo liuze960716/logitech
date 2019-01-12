@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>注册-罗技官方商城</title>
+    <link rel="stylesheet" href="css/register.css">
+</head>
+
+<body>
+<!-- header -->
+<header class="headerBox">
+    <div class="container">
+        <a href="index.html" class="logo"></a>
+    </div>
+    <div class="bg"></div>
+</header>
+    
+<!-- secion -->
+<section class="container">
+    <div class="registr_box">
+        <div class="registr_title">
+            <span class="name">注册</span>
+        <div class="right">已是会员，去<a href="login.html">&nbsp;登录&gt;</a></div>
+        </div>
+        <form action="php/reg.php" method="post" class="login_item">
+            <ul class="group">
+                <li class="list">
+                    <div class="list01">
+                        <label class="label_text" >手 机 号</label>
+                        <input type="text" placeholder="建议使用常用手机" class="input_text" id="txtCellPhone" maxlength="11" name="username">
+                        <!-- <i class="icon-ok"></i> -->
+                    </div>
+                    <div class="info" id="PhoneInfo" style="display:none">手机号很重要，它可以用来登录和找回密码哦</div>
+                </li>
+                <li class="list">
+                    <div class="list01">
+                        <label class="label_text">验 证 码</label>
+                        <input type="text" placeholder="请输入验证码" class="input_text">
+                        <img src="img/Coptcha.gif" alt="随机图">
+                    </div>
+                </li>
+                <li class="list">
+                    <div class="list01">
+                        <label class="label_text">手机验证码</label>
+                        <input type="text" placeholder="请输入手机验证码" class="input_text">
+                        <i class="icon-ok" style="right:100px;"></i>
+                        <a class="get_code" href="#" id="getZYM">获取验证码</a>
+                    </div>
+                    <div class="info" id="errs" style="display:none">如果未收到，请再点击获取验证码，重新获取</div>
+                </li>
+                <li class="list">
+                    <div class="list01">
+                        <label class="label_text" >设置密码</label>
+                        <input type="password" placeholder="建议至少两种字符组合" class="input_text" maxlength="20" id="pwd" name="userpass">
+                    </div>
+                    <div class="info" id="PassInfo" style="display:none">安全强度适高</div>
+                </li>
+                <li class="list">
+                    <div class="list01">
+                        <label class="label_text" >确认密码</label>
+                        <input type="password" class="input_text" placeholder="请再输入密码" id="password" maxlength="20" name="password">
+                    </div>
+                    <div class="info" id="PassInfo" style="display:none">安全强度适高</div>
+                </li>
+            </ul>
+            <p class="check">
+                <label class="label-text">
+                    <input type="checkbox" checked="checked" id="ck">我已经认证阅读
+                    <a href="/help/Agreement">《用户服务协议》</a> ，并完全同意协议中的所有条款。
+                </label>
+            </p>
+            <input type="submit" name="" class="user-default-btn" id="btnLogin" value="立即注册">
+    </form>
+    </div>
+</section>
+
+
+
+
+
+<!-- footer -->
+<div class="footerBox">
+    <div class="container copyright">
+        <p>罗技官方商城由罗技（中国）科技有限公司授权双齐国际贸易（上海）有限公司负责经营 2018 , all rights reserved</p>
+        <p>
+            <a style="color: #7f7f7f;" href="" target="_blank">罗技官方网站</a>
+            <a style="color: #7f7f7f;" href="" target="_blank">联系方式</a>
+            <a style="color: #7f7f7f;" href="" target="_blank">隐私声明</a>
+            <a style="color: #7f7f7f;" href="" target="_blank">用户服务协议</a>
+            <a style="color: #7f7f7f;" href="" target="_blank">沪ICP备10200262号</a>
+        </p>
+    </div>
+</div>
+
+
+</body>
+</html>
+<!-- <script type="text/javascript" src="js/jquery-1.8.3.js"></script> -->
+<script type="text/javascript" src="js/registr.js?=2"></script>
+<script type="text/javascript">
+// window.onload = function () {
+//     document.getElementById("txtCellPhone").onblur = function () {
+//         let xhr = new XMLHttpRequest();
+        
+//         xhr.open("post", "checkuser02.php?", true);
+
+//         xhr.onreadystatechange = function () {
+//             if (xhr.readyState == 4 && xhr.status == 200) {
+//                 if (xhr.responseText == "0") {
+//                     $("PhoneInfo").innerHTML = "该用户名可以使用";
+//                 }else{
+//                     $("PhoneInfo").innerHTML = "该用户名已被使用";
+//                 }
+//             }
+//         }
+//         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+//         let sendStr = "username=" + $("txtCellPhone").value;
+//         xhr.send(sendStr);
+//     }
+// }
+</script>
+
